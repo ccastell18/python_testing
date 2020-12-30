@@ -15,7 +15,12 @@ user_message.clear()
 user_message.send_keys("Hello World")
 
 lightbox_close_x = chrome_browser.find_element_by_id("at-cv-lightbox-close")
-
 lightbox_close_x.click()
 
+message_button = chrome_browser.find_element_by_css_selector('#get-input > button')
+message_button.click()
 
+output_message = chrome_browser.find_element_by_id('display')
+assert "Hello World" in output_message.text
+
+chrome_browser.quit()
